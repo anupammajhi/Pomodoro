@@ -243,6 +243,9 @@
   float: none;
   margin: 0 auto;
 }
+.c100.huge {
+  font-size: 320px;
+}
 .c100.big {
   font-size: 240px;
 }
