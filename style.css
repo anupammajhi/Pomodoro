@@ -2,6 +2,8 @@ body{
   background-color: #333;
 }
 
+
+/*Modifying CSS from circle.css*/
 .c100{
   background-color: transparent;
 }
@@ -10,10 +12,60 @@ body{
   color : #666;
 }
 
+
+/*Custom style*/
 .heading{
   color: #eee;
   font-size: 3.5em;
   text-align: center;
   margin: 20px;
   font-family: 'Sansita', sans-serif;
+}
+
+.time-controls{
+  margin: 20px auto;
+  color:#eee;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.add,
+.time,
+.reduce,
+.session-time,
+.break-time{
+  display: inline-block;
+
+}
+
+.session-time,
+.break-time{
+  margin: 20px;
+}
+
+.time-text{
+  font-size: 0.8em;
+  color: #999;
+  margin: 10px;
+}
+
+.add button,
+.reduce button{
+  height:30px;
+  width:30px;
+  border-radius: 50%;
+  font-weight: bold;
+  cursor: default;
+  border-color: transparent;
+  color: white;
+  font-size: 0.8em;
+  margin: 5px;
+}
+
+.add button{
+    background-color: green;
+}
+
+.reduce button{
+    background-color: red;
 }
