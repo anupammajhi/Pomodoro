@@ -60,12 +60,6 @@ body{
   color: white;
   font-size: 0.8em;
   margin: 5px;
-}
-
-.add button{
-    background-color: green;
-}
-
-.reduce button{
-    background-color: red;
+  background-color: #666;
+  background-color: rgba(102,102,102,0.3);
 }
