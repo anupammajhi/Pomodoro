@@ -1,58 +1,96 @@
-$(function(){
-
+$(function() {
+    $("button").removeAttr("disabled");
 });
 
-var percentage=0;
+var percentage = 0;
 var clockState = "stopped";
-var sessionMin = 25;
-var sessionSec = 0;
-var breakMin = 5;
-var breakSec = 0;
+var sessionTime = 25;
+var breakTime = 5;
 
-function printTime(min,sec){
-  if(min<=9){
-    min = "0" + min.toString();
-  }
-  if(sec<=9){
-    sec = "0" + sec.toString();
-  }
-  $(".c100 .maintime").html(min + ":" + sec);
+function printTime(min, sec) {
+    if (min <= 9) {
+        min = "0" + min.toString();
+    }
+    if (sec <= 9) {
+        sec = "0" + sec.toString();
+    }
+    $(".showClock .maintime").html(min + ":" + sec);
 }
 
-$(".session-time .add").click(function(){
-  sessionTime = $(".session-time .time").html();
-  $(".session-time .time").html(parseInt(sessionTime) + 1)
-  $(".sessionDiv .maintime").html((parseInt(sessionTime) + 1) + ":00");
+$(".session-time .add").click(function() {
+    sessionTime = parseInt($(".session-time .time").html()) + 1;
+    $(".session-time .time").html(sessionTime)
+    $(".sessionDiv .maintime").html(sessionTime + ":00");
 });
 
-$(".break-time .add").click(function(){
-  breakTime = $(".break-time .time").html();
-  $(".break-time .time").html(parseInt(breakTime) + 1)
-  $(".breakDiv .maintime").html((parseInt(breakTime) + 1) + ":00");
+$(".break-time .add").click(function() {
+    breakTime = parseInt($(".break-time .time").html()) + 1;
+    $(".break-time .time").html(breakTime);
+    $(".breakDiv .maintime").html(breakTime + ":00");
 });
 
-$(".session-time .reduce").click(function(){
-  sessionTime = $(".session-time .time").html();
-  if(sessionTime>0){
-    $(".session-time .time").html(parseInt(sessionTime) - 1);
-    $(".sessionDiv .maintime").html((parseInt(sessionTime) - 1) + ":00");
-  }
+$(".session-time .reduce").click(function() {
+    sessionTime = parseInt($(".session-time .time").html()) - 1;
+    if (sessionTime >= 1) {
+        $(".session-time .time").html(sessionTime);
+        $(".sessionDiv .maintime").html(sessionTime + ":00");
+    } else {
+        sessionTime = 1;
+    }
+
 });
 
-$(".break-time .reduce").click(function(){
-  breakTime = $(".break-time .time").html();
-  if(breakTime>0){
-    $(".break-time .time").html(parseInt(breakTime) - 1);
-    $(".breakDiv .maintime").html((parseInt(breakTime) - 1) + ":00");
-  }
+
+$(".break-time .reduce").click(function() {
+    breakTime = parseInt($(".break-time .time").html()) - 1;
+    if (breakTime >= 1) {
+        $(".break-time .time").html(breakTime);
+        $(".breakDiv .maintime").html(breakTime + ":00");
+    } else {
+        breakTime = 1;
+    }
+
 });
 
-$(".c100").click(function(){
-  parent = $(this).parent()[0];
-  if(clockState == "stopped"){
+$(".c100").click(function() {
+    parent = $(this).parent()[0].className;
 
-  }
-  if(clockState == "running"){
-    
-  }
+    if (clockState == "stopped") {
+        clock = setInterval(function() {
+
+            clockCur = $(".showClock .maintime").html().split(":");
+
+            if (parseInt(clockCur[1]) == 0) {
+                min = parseInt(clockCur[0]) - 1;
+                sec = 59;
+            } else {
+                min = parseInt(clockCur[0]);
+                sec = parseInt(clockCur[1]) - 1;
+            }
+
+            if (min === -1) {
+                $(".sessionDiv").toggleClass("showClock");
+                $(".breakDiv").toggleClass("showClock");
+                $(".sessionDiv .maintime").html(sessionTime + ":00");
+                $(".breakDiv .maintime").html(breakTime + ":00");
+                clockCur = $(".showClock .maintime").html().split(":");
+                min = parseInt(clockCur[0]) - 1;
+            }
+
+            printTime(min, sec);
+            clockState = "running"
+
+        }, 1000);
+        $(".clock-control span").removeClass("glyphicon-play")
+        $(".clock-control span").addClass("glyphicon-pause")
+        $("button").attr("disabled", "");
+    }
+    if (clockState == "running") {
+
+        clearInterval(clock);
+        clockState = "stopped"
+        $(".clock-control span").removeClass("glyphicon-pause")
+        $(".clock-control span").addClass("glyphicon-play")
+        $("button").removeAttr("disabled");
+    }
 });

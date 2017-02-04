@@ -75,3 +75,11 @@ h1,h2{
     background-color: #666;
     background-color: rgba(102, 102, 102, 0.3);
 }
+
+.sessionDiv,
+.breakDiv{
+  display: none;
+}
+.showClock{
+  display:block;
+}
