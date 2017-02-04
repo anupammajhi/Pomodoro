@@ -1,41 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-  <title>Pomodoro</title>
+    <title>Pomodoro</title>
 
-  <link href="https://fonts.googleapis.com/css?family=Sansita" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="circle.css">
-  <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Sansita" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="circle.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
 
 </head>
+
 <body>
-  <div class="heading">Pomodoro Clock</div>
-  <div class="time-controls">
-    <div class="session-time">
-      <div class="time-text">Session Time</div>
-      <div class="reduce"><button>-</button></div>
-      <div class="time">25</div>
-      <div class="add"><button>+</button></div>
+    <div class="heading">Pomodoro Clock</div>
+    <div class="time-controls">
+        <div class="session-time">
+            <div class="time-text">Session Time</div>
+            <div class="reduce"><button>-</button></div>
+            <div class="time">25</div>
+            <div class="add"><button>+</button></div>
+        </div>
+        <div class="break-time">
+            <div class="time-text">Break Time</div>
+            <div class="reduce"><button>-</button></div>
+            <div class="time">5</div>
+            <div class="add"><button>+</button></div>
+        </div>
     </div>
-    <div class="break-time">
-      <div class="time-text">Break Time</div>
-      <div class="reduce"><button>-</button></div>
-      <div class="time">5</div>
-      <div class="add"><button>+</button></div>
+    <div class="sessionDiv">
+      <h1>Session</h1>
+    <div class="c100 p20 huge green center">
+        <span class="maintime">25:00</span>
+        <div class="slice">
+            <div class="bar"></div>
+            <div class="fill"></div>
+        </div>
+        <div class="clock-control"><span class="glyphicon glyphicon-play" aria-hidden="true"></span></div>
     </div>
-  </div>
-  <div class="c100 p20 huge green center">
-  <span>25:00</span>
-  <div class="slice">
-    <div class="bar"></div>
-    <div class="fill"></div>
-  </div>
-</div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="script.js"></script>
+    </div>
+    <div class="breakDiv" style="display:none;">
+      <h1>Break</h1>
+    <div class="c100 p20 huge orange center">
+        <span class="maintime">5:00</span>
+        <div class="slice">
+            <div class="bar"></div>
+            <div class="fill"></div>
+        </div>
+        <div class="clock-control" style="color:#dd9d22;"><span class="glyphicon glyphicon-play" aria-hidden="true"></span></div>
+    </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>
