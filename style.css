@@ -83,3 +83,17 @@ h1, h2 {
 .showClock {
     display: block;
 }
+
+.footer{
+  text-align: center;
+  color: white;
+  font-size: 1.2em;
+  padding: 25px;
+}
+
+a:link,
+a:visited,
+a:hover,
+a{
+  color:#4db53c;
+}
