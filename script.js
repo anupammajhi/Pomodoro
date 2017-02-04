@@ -7,6 +7,8 @@ var percentageTotal;
 var clockState = "stopped";
 var sessionTime = 25;
 var breakTime = 5;
+beep = new Audio("beep.mp3")
+bell = new Audio("bell.mp3")
 
 function printTime(min, sec) {
     if (min <= 9) {
@@ -91,10 +93,18 @@ $(".c100").click(function() {
                 $(".breakDiv .maintime").html(breakTime + ":00");
                 clockCur = $(".showClock .maintime").html().split(":");
                 min = parseInt(clockCur[0]) - 1;
+
             } else {
                 percentage = 100 - Math.round((((min * 60) + sec) / percentageTotal) * 100)
             }
 
+            if (min == 0 && sec > 0 && sec < 6) {
+                beep.currentTime = 0;
+                beep.play();
+            }
+            if (min == 0 && sec == 0) {
+                bell.play();
+            }
 
             if (percentage !== 0) {
                 $(".showClock > .c100").removeClass("p" + (percentage - 1) + " p" + (percentage - 2))

@@ -16,10 +16,10 @@ body {
 
 /*Custom style*/
 
-h1,h2{
-  color:#eee;
-  font-family: 'Sansita', sans-serif;
-  text-align: center;
+h1, h2 {
+    color: #eee;
+    font-family: 'Sansita', sans-serif;
+    text-align: center;
 }
 
 .heading {
@@ -76,10 +76,10 @@ h1,h2{
     background-color: rgba(102, 102, 102, 0.3);
 }
 
-.sessionDiv,
-.breakDiv{
-  display: none;
+.sessionDiv, .breakDiv {
+    display: none;
 }
-.showClock{
-  display:block;
+
+.showClock {
+    display: block;
 }
