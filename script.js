@@ -7,8 +7,15 @@ var percentageTotal;
 var clockState = "stopped";
 var sessionTime = 25;
 var breakTime = 5;
-beep = new Audio("beep.mp3")
-bell = new Audio("bell.mp3")
+beep = new Audio("Beep.mp3")
+bell = new Audio("Bell.mp3")
+
+// if(!beep){
+//     beep = new Audio("https://github.com/anupammajhi/Pomodoro/raw/master/Beep.mp3")
+// }
+// if(!bell){
+//     bell = new Audio("https://github.com/anupammajhi/Pomodoro/raw/master/Bell.mp3")
+// }
 
 function printTime(min, sec) {
     if (min <= 9) {
